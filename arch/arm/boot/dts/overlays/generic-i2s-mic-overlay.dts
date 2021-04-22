@@ -1,0 +1,41 @@
+// Definitions for a generic I2S MIC
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2835", "brcm,bcm2708", "brcm,bcm2709";
+
+
+	fragment@0 {
+		target = <&i2s>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+
+	fragment@1 {
+		target-path = "/";
+		__overlay__ {
+			dmic-codec {
+				#sound-dai-cells = <0>;
+				compatible = "dmic-codec";
+				status = "okay";
+			};
+		};
+	};
+
+	fragment@2 {
+		target = <&sound>;
+		generic_i2s_mic: __overlay__ {
+			compatible = "rpi,generic-i2s-mic";
+			i2s-controller = <&i2s>;
+			status = "okay";
+		};
+	};
+	
+	__overrides__ {
+		snd_soc_daifmt_i2s = <&generic_i2s_mic>,"rpi,snd_soc_daifmt_i2s?";
+		snd_soc_daifmt_nb_nf = <&generic_i2s_mic>,"rpi,snd_soc_daifmt_nb_nf?";
+		snd_soc_daifmt_cbm_cfm = <&generic_i2s_mic>,"rpi,snd_soc_daifmt_cbm_cfm?";
+	};
+};

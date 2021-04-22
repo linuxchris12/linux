@@ -833,6 +833,16 @@ Load:   dtoverlay=fsm-demo,<param>=<val>
 Params: fsm_debug               Enable debug logging (default off)
 
 
+Name:   generic-i2s-mic
+Info:   An overlay for a generic I2S microphone, based on the dmic codec.
+        The overlay can be configured with parameters, allowing run-time 
+        tuning of I2S parameters.
+Load:   dtoverlay=generic-i2s-mic,<param>=<val>
+Params: snd_soc_daifmt_i2s      Format for I2S (default false)
+        snd_soc_daifmt_nb_nf    Use normal bit clock and frame (default false)
+        snd_soc_daifmt_cbm_cfm  Codec is clock and frame master (default false)
+
+
 Name:   ghost-amp
 Info:   An overlay for the Ghost amplifier.
 Load:   dtoverlay=ghost-amp,<param>=<val>

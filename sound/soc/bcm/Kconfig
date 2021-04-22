@@ -100,7 +100,14 @@ config SND_BCM2708_SOC_HIFIBERRY_AMP
         help
          Say Y or M if you want to add support for the HifiBerry Amp amplifier board.
 
- config SND_BCM2708_SOC_PIFI_40
+config SND_BCM2708_SOC_GENERIC_I2S_MIC
+        tristate "Support for a generic I2S mic"
+        depends on SND_BCM2708_SOC_I2S || SND_BCM2835_SOC_I2S
+        select SND_SOC_DMIC
+        help
+         Say Y or M if you want to add support for the generic I2S mic.
+
+config SND_BCM2708_SOC_PIFI_40
          tristate "Support for the PiFi-40 amp"
          depends on SND_BCM2708_SOC_I2S || SND_BCM2835_SOC_I2S
          select SND_SOC_TAS571X

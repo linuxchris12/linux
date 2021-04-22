@@ -71,6 +71,7 @@ dtbo-$(CONFIG_ARCH_BCM2835) += \
 	hifiberry-dacplushd.dtbo \
 	hifiberry-digi.dtbo \
 	hifiberry-digi-pro.dtbo \
+	generic-i2s-mic.dtbo \
 	highperi.dtbo \
 	hy28a.dtbo \
 	hy28b.dtbo \
